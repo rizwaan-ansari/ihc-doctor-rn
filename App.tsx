@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import LanguageScreen from './src/screens/LanguageScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
