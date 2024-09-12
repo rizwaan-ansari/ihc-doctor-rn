@@ -86,6 +86,8 @@ export const IMG_PATIENT_2_PROFILE_ICON = require('./patient-profile-2.png');
 export const IMG_PATIENT_3_PROFILE_ICON = require('./patient-profile-3.png');
 export const IMG_PATIENT_4_PROFILE_ICON = require('./patient-profile-4.png');
 
+
+export const IMG_COUNTRY_ICON = require('./country-icon.png');
 export const IMG_CELL_PHONE_ICON = require('./phone-icon.png');
 export const IMG_PASSWORD_LOCK_ICON = require('./password-icon.png');
 

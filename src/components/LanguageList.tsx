@@ -47,7 +47,7 @@ export default function LanguageList({onLanguageSelect}:Props) {
         onLanguageSelect(id); 
     };
     return (
-        <View style={styles.languageSelectionContainer}>
+        <View className='mt-8 w-full'>
             {LANGUAGES.map((language, index) => {
                 const isSelected = selectedLanguage === language.id
 
@@ -89,24 +89,25 @@ export default function LanguageList({onLanguageSelect}:Props) {
                         onPressIn={onPressIn}
                         onPressOut={onPressOut}
                         key={index.toString()}
-                        style={[styles.languageListItem, animatedTouchebleStyle, { borderBottomWidth: index === LANGUAGES.length - 1 ? 0 : ms(1, .25),borderColor:'#F6F6F6' }]}
+                        className={"flex-row justify-between py-[18px] items-center relative"}
+                        style={[animatedTouchebleStyle, { borderBottomWidth: index === LANGUAGES.length - 1 ? 0 : ms(1, .25),borderColor:'#F6F6F6' }]}
                         onPress={() => handlePress(language.id)}
                     >
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <View style={styles.flagIconContainer}>
+                            <View className='h-3 w-[18px] mr-[10px]'>
                                 <FastImage
                                     style={{ width: '100%', height: '100%' }}
                                     source={language.icon}
                                     resizeMode={FastImage.resizeMode.contain}
                                 />
                             </View>
-                            <Animated.Text style={[styles.languageListItemText, animatedText]}>{language.title}</Animated.Text>
+                            <Animated.Text className={"text-base text-black50 font-semibold"} style={[animatedText]}>{language.title}</Animated.Text>
                         </View>
                         <Animated.View style={[animatedStyles]}>
                             <OcticonsIcon name="check" size={ms(20, .25)} color={'#370060'} />
                         </Animated.View>
 
-                        <Animated.View style={[styles.languageItemUnderaly, animatedLanguageItemUnderaly]}>
+                        <Animated.View className={"absolute top-0 left-0 bottom-0 right-0 z-[-1]"} style={[animatedLanguageItemUnderaly]}>
                             <SquircleView
                                 style={{ height: '100%', width: '100%' }}
                                 squircleParams={{
@@ -122,36 +123,3 @@ export default function LanguageList({onLanguageSelect}:Props) {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    languageSelectionContainer: {
-        marginTop: ms(32, .25),
-        width: '100%'
-    },
-    languageListItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: ms(18, .25),
-        alignItems: 'center',
-        position: 'relative'
-    },
-    languageListItemText: {
-        fontSize: ms(16, .25),
-        color: 'rgba(0,0,0,.5)',
-        fontFamily: 'SFProDisplay',
-        fontWeight: '600'
-    },
-    flagIconContainer: {
-        height: ms(12, .25),
-        width: ms(18, .25),
-        marginRight: ms(10, .25)
-    },
-    languageItemUnderaly: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: -1
-    }
-})

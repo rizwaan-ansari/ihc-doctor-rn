@@ -53,7 +53,8 @@ export default function Btn({onPress, onLongPress, title, type = 'default'}: Pro
 
     return (
         <AnimatedPressable 
-            style={[styles.buttonContainer, animatedButtonContainerStyle]}
+            style={[animatedButtonContainerStyle]}
+            className={"py-4 w-full justify-center items-center h-[50px] overflow-hidden"}
             onPressIn={onPressIn}
             onPressOut={onPressOut}
             onPress={onPress}
@@ -74,13 +75,3 @@ export default function Btn({onPress, onLongPress, title, type = 'default'}: Pro
         </AnimatedPressable>
     )
 }
-const styles = StyleSheet.create({
-    buttonContainer: {
-        paddingVertical: ms(16, .25),
-        width: '100%', 
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: ms(50, .25),
-        overflow: 'hidden'
-    }
-})
