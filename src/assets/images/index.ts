@@ -132,3 +132,5 @@ export const IMG_MESSAGE_AVATAR = require('./message-avatar.png');
 export const IMG_REQUEST_SUCCESSFUL = require('./request-successful-icon.png');
 export const IMG_WITHDRAWAL_SUCCESSFUL = require('./withdrawal-successful-icon.png');
 export const IMG_TRANSALTE_ICON = require('./translate-icon.png');
+
+export const IMG_OTP_SCREEN = require('./otp-screen.png');

@@ -13,6 +13,7 @@ import { COLOR_PALLETE } from "../utils/ColorConstant";
 type Props = {
     children?: React.ReactNode;
     staticView?: boolean,
+    staticViewStyle?: StyleProp<ViewStyle>,
     hideBackButton?: boolean,
     hideTitle?: boolean,
     title?: string,
@@ -36,6 +37,7 @@ const ContainerView: React.FC<Props> = ({
     children, 
     title, 
     staticView, 
+    staticViewStyle,
     withoutBottomTabs, 
     bodyStyle,
     bottomButton,
@@ -52,7 +54,7 @@ const ContainerView: React.FC<Props> = ({
 
     if(staticView === true) {
         return(
-            <SafeAreaView style={styles.staticSafeAreaView}>
+            <SafeAreaView style={[styles.staticSafeAreaView, staticViewStyle]}>
                 {!hideBackButton && !hideTitle && 
                     <View style={styles.headerContainer}>
                         {!hideTitle &&
@@ -62,7 +64,7 @@ const ContainerView: React.FC<Props> = ({
                         }
 
                         {!hideBackButton &&
-                            <TouchableOpacity style={styles.staticViewBackBtn}>
+                            <TouchableOpacity style={styles.staticViewBackBtn} onPress={()=> navigation.goBack()}>
                                 <Text>
                                     <FeatherIcon name="chevron-left" size={ms(24, .25)}/>
                                 </Text>

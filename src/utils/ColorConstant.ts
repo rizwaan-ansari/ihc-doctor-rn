@@ -31,6 +31,7 @@ export const COLOR_PALLETE: { [key: string]: string } = {
     WHITE_COLOR_40: 'rgba(255, 255, 255, 0.4)',
     WHITE_COLOR_30: 'rgba(255, 255, 255, 0.3)',
     BRAND_COLOR_40: 'rgba(32, 44, 80, 0.4)',
+    BRAND_COLOR_60: 'rgba(136, 136, 136, 1)',
     BLACK_COLOR: '#000000',
     BLACK_COLOR_50: 'rgba(0, 0, 0, 0.5)',
     BLACK_COLOR_60: 'rgba(0, 0, 0, 0.6)',

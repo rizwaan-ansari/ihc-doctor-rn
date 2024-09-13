@@ -51,7 +51,7 @@ export default function SignUp({navigation}: {navigation: NavigationProp<ParamLi
                     <TouchableOpacity>
                       <Txt className='mb-[22px] justify-end' fontSize={"sm"} fontWeight={500} textAlign={"right"} fontColor={"brand-40"}>Forgot Password?<Txt fontColor={"brand"} fontSize={"sm"} fontWeight={500}> Get help.</Txt></Txt>
                     </TouchableOpacity>
-                    <Btn title='LOGIN'/>
+                    <Btn title='LOGIN' onPress={() => navigation.navigate('OtpScreen')}/>
                     <Txt className='my-6' fontSize={"sm"} fontWeight={500} textAlign={"center"} fontColor={"brand-40"}>Or login with</Txt>
                     <View className='flex-row items-center justify-center'>
                         <TouchableOpacity>

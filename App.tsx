@@ -15,6 +15,7 @@ import LanguageScreen from './src/screens/LanguageScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import OtpScreen from './src/screens/OtpScreen';
 
 
 const RootStack = createNativeStackNavigator();
@@ -42,6 +43,7 @@ const RootStackNavigator = () => {
       <RootStack.Screen name="LanguageScreen" component={LanguageScreen} />
       <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RootStack.Screen name="LogInScreen" component={LogInScreen} />
+      <RootStack.Screen name="OtpScreen" component={OtpScreen} />
       <RootStack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
     </RootStack.Navigator>
   )

@@ -6,7 +6,7 @@ import {COLOR_PALLETE} from '../utils/ColorConstant'
 
     type fontSize = 'xxs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
     type fontWeight = 300 | 400 | 500 | 600 | 700 | 800 | 900;
-    type fontColor = 'dark' | 'primary' | 'secondary' | 'tertiary' | 'white' | 'brand-light' | 'brand' | 'secondary-brand-3' | 'danger' | 'warning' | 'success' | 'white-80' | 'white-60' | 'white-50' | 'white-30' | 'black-50' | 'brand-40';
+    type fontColor = 'dark' | 'primary' | 'secondary' | 'tertiary' | 'white' | 'brand-light' | 'brand' | 'secondary-brand-3' | 'danger' | 'warning' | 'success' | 'white-80' | 'white-60' | 'white-50' | 'white-30' | 'black-50' | 'brand-40' | 'brand-60';
     type textAlign= 'left' | 'center' | 'right';
     type numberOfLines = number;
     type textTransform = "uppercase" | "lowercase" | "capitalize";
@@ -81,6 +81,7 @@ const FONT_COLOR_MAPPER: Record<fontColor, string> = {
     'white-30': COLOR_PALLETE.WHITE_COLOR_30,
     'black-50': COLOR_PALLETE.BLACK_COLOR_50,
     'brand-40': COLOR_PALLETE.BRAND_COLOR_40,
+    'brand-60': COLOR_PALLETE.BRAND_COLOR_60,
     'primary': COLOR_PALLETE.PRIMARY_TEXT_COLOR,
 }; 
 const FONT_WEIGHT_MAPPER: Record<fontWeight, string> = {
