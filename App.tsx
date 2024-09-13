@@ -16,6 +16,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import OtpScreen from './src/screens/OtpScreen';
+import ConfirmPasswordScreen from './src/screens/ConfirmPasswordScreen';
 
 
 const RootStack = createNativeStackNavigator();
@@ -40,10 +41,12 @@ function App(): React.JSX.Element {
 const RootStackNavigator = () => {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
+      <RootStack.Screen name="HomeScreen" component={HomeScreen} />
       <RootStack.Screen name="LanguageScreen" component={LanguageScreen} />
       <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RootStack.Screen name="LogInScreen" component={LogInScreen} />
       <RootStack.Screen name="OtpScreen" component={OtpScreen} />
+      <RootStack.Screen name="ConfirmPasswordScreen" component={ConfirmPasswordScreen} />
       <RootStack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
     </RootStack.Navigator>
   )
