@@ -36,8 +36,8 @@ function App(): React.JSX.Element {
 const RootStackNavigator = () => {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
-      <RootStack.Screen name="LanguageScreen" component={LanguageScreen} />
       <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+      <RootStack.Screen name="LanguageScreen" component={LanguageScreen} />
       <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RootStack.Screen name="LogInScreen" component={LogInScreen} />
       <RootStack.Screen name="OtpScreen" component={OtpScreen} />

@@ -107,13 +107,13 @@ export default function PatientCard({
             }, containerStyles]}
             onPress={onPress}
         >
-            <View className='flex-row justify-between items-center bg-red-600'>
+            <View className='flex-row justify-between items-center'>
                 <View className='flex-row items-center'>
-                    <View className='h-10 w-10 rounded-[5px] overflow-hidden border-[#F1F1F1]'>
+                    <View className='h-10 w-10 rounded-[5px] border-[#F1F1F1]'>
                         <FastImage
                             className='w-full h-full'
                             source={image}
-                            resizeMode={FastImage.resizeMode.cover}
+                            resizeMode={FastImage.resizeMode.contain}
                         />
                     </View>
                     <View className='mx-[10px] max-w-[190px]'>
