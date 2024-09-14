@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import { Pressable, StyleSheet, View } from 'react-native'
-import { IMG_LANGUAGE_FLAG_1, IMG_LANGUAGE_FLAG_2 } from '../assets/images'
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
-import { trigger } from 'react-native-haptic-feedback';
+import React, { useReducer, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { I18nManager, Pressable, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import OcticonsIcon from 'react-native-vector-icons/Octicons';
-import { ms } from 'react-native-size-matters';
 import { SquircleView } from 'react-native-figma-squircle';
+import { trigger } from 'react-native-haptic-feedback';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import RNRestart from 'react-native-restart';
+import { ms } from 'react-native-size-matters';
+import OcticonsIcon from 'react-native-vector-icons/Octicons';
+import { IMG_LANGUAGE_FLAG_1, IMG_LANGUAGE_FLAG_2 } from '../assets/images';
+import { storage } from '../service/Storage';
+import useLocale from '../hooks/useLocale';
 
 
 
@@ -17,28 +21,40 @@ type Props = {
 const LANGUAGES = [
     {
         id: 0,
-        key: 'english',
+        key: 'en',
         title: 'English',
         icon: IMG_LANGUAGE_FLAG_1
     },
     {
         id: 1,
-        key: 'arabic',
+        key: 'ar',
         title: 'Arabic',
         icon: IMG_LANGUAGE_FLAG_2
     }
 ]
+interface State {
+    selectedLocale: 'ar' | 'en';
+}
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export default function LanguageList({onLanguageSelect}:Props) {
     const [selectedLanguage, setSelectedLanguage] = useState<number | null>(null);
+    const { t } = useTranslation();
+    const { locale } = useLocale();
 
     const scales = LANGUAGES.map((_,index) => useSharedValue(0));
     const languageItemScales = LANGUAGES.map(() => useSharedValue(1));
     const languageItemBackgroundOpacities = LANGUAGES.map(() => useSharedValue(0));
 
-    const handlePress = (id: number) => {
+    const [state] = useReducer((state: State, newState: Partial<State>): State => ({...state, ...newState}), {
+        selectedLocale: I18nManager.isRTL ? 'ar' : 'en'
+    });
+
+    const handlePress = async (id: number, key: string) => {
+            I18nManager.forceRTL(true);
+            storage.set('locale', key);
+            RNRestart.Restart();
         if (selectedLanguage !== null) {
             scales[selectedLanguage].value = withTiming(0, { duration: 300 });
         }
@@ -50,12 +66,6 @@ export default function LanguageList({onLanguageSelect}:Props) {
         <View className='mt-8 w-full'>
             {LANGUAGES.map((language, index) => {
                 const isSelected = selectedLanguage === language.id
-
-                const animatedStyles = useAnimatedStyle(() => {
-                    return {
-                        transform: [{ scale: scales[index].value }],
-                    };
-                });
 
                 const animatedText = useAnimatedStyle(() => {
                     return {
@@ -91,7 +101,7 @@ export default function LanguageList({onLanguageSelect}:Props) {
                         key={index.toString()}
                         className={"flex-row justify-between py-[18px] items-center relative"}
                         style={[animatedTouchebleStyle, { borderBottomWidth: index === LANGUAGES.length - 1 ? 0 : ms(1, .25),borderColor:'#F6F6F6' }]}
-                        onPress={() => handlePress(language.id)}
+                        onPress={() => handlePress(language.id, language.key)}
                     >
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View className='h-3 w-[18px] mr-[10px]'>
@@ -103,9 +113,11 @@ export default function LanguageList({onLanguageSelect}:Props) {
                             </View>
                             <Animated.Text className={"text-base text-black50 font-semibold"} style={[animatedText]}>{language.title}</Animated.Text>
                         </View>
-                        <Animated.View style={[animatedStyles]}>
-                            <OcticonsIcon name="check" size={ms(20, .25)} color={'#370060'} />
-                        </Animated.View>
+                        {(state.selectedLocale === language.key) &&
+                            <Animated.View>
+                                <OcticonsIcon name="check" size={ms(20, .25)} color={'#370060'} />
+                            </Animated.View>
+                        } 
 
                         <Animated.View className={"absolute top-0 left-0 bottom-0 right-0 z-[-1]"} style={[animatedLanguageItemUnderaly]}>
                             <SquircleView

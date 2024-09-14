@@ -1,12 +1,13 @@
 import * as React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import ContainerView from '../components/ContainerView';
-import Txt from '../components/Txt';
-import {Section} from '../components/Section';
-import {ms} from 'react-native-size-matters';
+import { Dimensions, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { Dimensions } from 'react-native';
-import { useWindowDimensions } from 'react-native';
+import Carousel from "react-native-reanimated-carousel";
+import { ms } from 'react-native-size-matters';
+import { FlatGrid } from 'react-native-super-grid';
+import ContainerView from '../components/ContainerView';
+import PatientCard, { Status } from '../components/PatientCard';
+import { Section } from '../components/Section';
+import Txt from '../components/Txt';
 import {
   IMG_ABOUT_ICON_MORE,
   IMG_APPOINTMENT_MENU_ICON,
@@ -18,22 +19,15 @@ import {
   IMG_MY_PROFILE_MENU_ICON,
   IMG_NOTIFICATIONS_MENU_ICON,
   IMG_PATIENTS_MENU_ICON,
-  IMG_PATIENT_PROFILE_ICON,
   IMG_PRIVACY_POLICY_ICON_MORE,
   IMG_REGISTER_ICON_MORE,
   IMG_REVIEWS_MENU_ICON,
   IMG_SECURITY_ICON_MORE,
   IMG_TERMS_CONDITIONS_ICON_MORE,
   IMG_TIME_BLOCK_MENU_ICON,
-  IMG_VIDEO_CALL_ICON,
-  IMG_WALLET_MENU_ICON,
-  IMG_USER_PROFILE_4 
+  IMG_USER_PROFILE_4,
+  IMG_WALLET_MENU_ICON
 } from '../assets/images';
-import {FlatGrid} from 'react-native-super-grid';
-// import {Navigation} from 'react-native-navigation';
-import Carousel from "react-native-reanimated-carousel";
-import Animated, { FadeInRight } from 'react-native-reanimated'
-import PatientCard, { Status } from '../components/PatientCard';
 
 const { width: deviceWidth } = Dimensions.get('window');
 
@@ -169,55 +163,7 @@ export default function AccountScreen(props: any) {
     <ContainerView>
       <View>
         <Section title="Recent Appoinments" btnText="View All" style={{padding: 0}} unsetInnerSpacing={true}>
-          {/* <View style={styles.PatientCard}>
-                        <View style={styles.PatientProfile}>
-                            <View style={styles.PatientProfileIconContainer}>
-                                <FastImage 
-                                source={IMG_PATIENT_PROFILE_ICON}
-                                style={styles.PatientProfileIcon}
-                                resizeMode='contain'
-                                />
-                            </View>
-                            <View>
-                                <Txt size="regular" weight="medium" color="white" >Ammar Yousufzai</Txt>
-                                <Txt size="xs" weight="semiBold" color="success" >Accept</Txt>
-                            </View>
-                        </View>
-                        <View style={styles.AppointmentDetailsContainer}>
-                            <View style={styles.AppointmentDetails}>
-                                <Txt size="small" weight="bold" color="brand" align='center'># 281</Txt>
-                                <Txt style={styles.AppointmentDetailsTitle} size="xs" weight="medium" align="center">ID</Txt>
-                            </View>
-                            <View style={styles.AppointmentDetails}>
-                                <Txt size="small" weight="bold" color="brand" align='center'>30 KD</Txt>
-                                <Txt style={styles.AppointmentDetailsTitle} size="xs" weight="medium" align="center">Fee</Txt>
-                            </View>
-                            <View style={styles.AppointmentDetails}>
-                                <Txt size="small" weight="bold" color="brand" align='center'>5:30pm</Txt>
-                                <Txt style={styles.AppointmentDetailsTitle} size="xs" weight="medium" align="center">Time</Txt>
-                            </View>
-                            <View style={styles.AppointmentDetails}>
-                                <Txt size="small" weight="bold" color="brand" align='center'>15-08-21</Txt>
-                                <Txt style={styles.AppointmentDetailsTitle} size="xs" weight="medium" align="center">Date</Txt>
-                            </View>
-                        </View>
-                        <View style={styles.VideoCallAppoitment}>
-                            <TouchableOpacity>
-                                <View style={styles.VideoCallContainer}>
-                                    <View style={styles.VideoCallIconContainer}>
-                                        <FastImage 
-                                        style={styles.VideoCallIcon}
-                                        source={IMG_VIDEO_CALL_ICON}
-                                        resizeMode='contain'
-                                        />
-                                    </View>
-                                    <Txt color="white-30" size="xs" weight="medium">Video call</Txt>
-                                </View>
-                            </TouchableOpacity>
-                            <Txt color="white-30" size="xs" weight="medium">5:30 PM , 15 Aug 2021</Txt>
-                        </View>
-                    </View> */}
-          <View style={styles.CarouselContainer}>
+          <View className='w-full relative -left-2 overflow-hidden pt-[14px] pl-4'>
           <Carousel
             width={windowWidth - 60}
             height={200}
@@ -263,14 +209,14 @@ export default function AccountScreen(props: any) {
               renderItem={({item}) => (
                 <TouchableOpacity
                   onPress={() => props.navigation.navigate(item.link)}>
-                  <View style={styles.MenuCard}>
-                    <FastImage source={item.image} style={styles.MenuIcons} />
+                  <View className='bg-[#F6F6F6] w-full rounded-lg pl-4 py-6 relative'>
+                    <FastImage source={item.image} className='w-4 h-4 mb-2'/>
                     <Txt fontSize={"sm"} fontWeight={500}>
                       {item.title}
                     </Txt>
 
                     {item.hasNotification && (
-                      <View style={styles.HasNotification}></View>
+                      <View className='absolute right-2 top-2 w-2 h-2 rounded-full bg-[#A20021]'></View>
                     )}
                   </View>
                 </TouchableOpacity>
@@ -281,10 +227,10 @@ export default function AccountScreen(props: any) {
         <Section title="More">
           <View>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_ABOUT_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -295,10 +241,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_PRIVACY_POLICY_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -309,10 +255,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_TERMS_CONDITIONS_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -323,10 +269,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_SECURITY_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -337,10 +283,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_CONTACT_US_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -351,10 +297,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_FAQ_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -365,10 +311,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_LOGIN_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -379,10 +325,10 @@ export default function AccountScreen(props: any) {
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
-              <View style={styles.FooterContainer}>
-                <View style={styles.FooterIconsContainer}>
+              <View className='flex-row items-center mb-6'>
+                <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
-                    style={styles.FooterIcons}
+                    className='w-full h-full'
                     source={IMG_REGISTER_ICON_MORE}
                     resizeMode="contain"
                   />
@@ -398,103 +344,3 @@ export default function AccountScreen(props: any) {
     </ContainerView>
   );
 }
-const styles = StyleSheet.create({
-  // PatientCard: {
-  //   backgroundColor: '#202C50',
-  //   borderRadius: ms(8, 0.25),
-  //   padding: ms(16, 0.25),
-  // },
-  PatientProfile: {
-    flexDirection: 'row',
-    paddingBottom: ms(16, 0.25),
-  },
-  PatientProfileIconContainer: {
-    width: ms(40, 0.25),
-    height: ms(40, 0.25),
-    marginRight: ms(8, 0.25),
-  },
-  PatientProfileIcon: {
-    width: '100%',
-    height: '100%',
-    borderRadius: ms(50, 0.25),
-  },
-  CarouselContainer: {
-    width: "100%",
-    position: "relative",
-    left: -8,
-    overflow: "hidden",
-    paddingTop: 14,
-    paddingLeft: 15
-  },
-  AppointmentDetailsContainer: {
-    backgroundColor: '#63C7EC',
-    flexDirection: 'row',
-    paddingVertical: ms(16, 0.25),
-    // paddingLeft: ms(16, .25),
-    // justifyContent: "space-between",
-    borderRadius: ms(8, 0.25),
-  },
-  AppointmentDetails: {
-    paddingRight: ms(8, 0.25),
-    borderRightColor: '#202C501A',
-    borderRightWidth: ms(1, 0.25),
-    flex: 1,
-  },
-  AppointmentDetailsTitle: {
-    color: '#202C5066',
-  },
-  VideoCallAppoitment: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: ms(16, 0.25),
-  },
-  VideoCallContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  VideoCallIconContainer: {
-    width: ms(10, 0.25),
-    height: ms(10, 0.25),
-    marginRight: ms(4, 0.25),
-  },
-  VideoCallIcon: {
-    width: '100%',
-    height: '100%',
-  },
-  MenuCard: {
-    backgroundColor: '#F6F6F6',
-    width: '100%',
-    borderRadius: ms(8, 0.25),
-    paddingLeft: ms(16, 0.25),
-    paddingVertical: ms(24, 0.25),
-    position: 'relative',
-  },
-  MenuIcons: {
-    width: ms(16, 0.25),
-    height: ms(16, 0.25),
-    marginBottom: ms(8, 0.25),
-  },
-  HasNotification: {
-    position: 'absolute',
-    right: ms(8, 0.25),
-    top: ms(8, 0.25),
-    width: ms(8, 0.25),
-    height: ms(8, 0.25),
-    borderRadius: ms(50, 0.25),
-    backgroundColor: '#A20021',
-  },
-  FooterContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: ms(24, 0.25),
-  },
-  FooterIconsContainer: {
-    width: ms(18, 0.25),
-    height: ms(18, 0.25),
-    marginRight: ms(12, 0.25),
-  },
-  FooterIcons: {
-    width: '100%',
-    height: '100%',
-  },
-});

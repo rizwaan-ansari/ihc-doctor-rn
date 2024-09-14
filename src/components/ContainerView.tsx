@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, ScrollView, StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle, Platform } from "react-native";
+import { SafeAreaView, ScrollView, StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle, Platform, I18nManager } from "react-native";
 
 import { ms } from "react-native-size-matters";
 import FeatherIcon from 'react-native-vector-icons/Feather';
@@ -9,6 +9,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import Txt from "./Txt";
 import Btn from "./Btn";
 import { COLOR_PALLETE } from "../utils/ColorConstant";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     children?: React.ReactNode;
@@ -51,6 +52,7 @@ const ContainerView: React.FC<Props> = ({
     bottomBtnGroupStyle
 }) => {
     const navigation = useNavigation()
+    const { t } = useTranslation(['register', 'common'])
 
     if(staticView === true) {
         return(
@@ -59,14 +61,14 @@ const ContainerView: React.FC<Props> = ({
                     <View style={styles.headerContainer}>
                         {!hideTitle &&
                             <Txt fontSize={"2xl"} fontWeight={700}>
-                                {title}
+                                {(title || '')}
                             </Txt>
                         }
 
                         {!hideBackButton &&
                             <TouchableOpacity style={styles.staticViewBackBtn} onPress={()=> navigation.goBack()}>
                                 <Text>
-                                    <FeatherIcon name="chevron-left" size={ms(24, .25)}/>
+                                    <FeatherIcon name={I18nManager.isRTL ? "chevron-right" : "chevron-left"} size={ms(24, .25)}/>
                                 </Text>
                             </TouchableOpacity>
                         }
@@ -86,7 +88,7 @@ const ContainerView: React.FC<Props> = ({
                 {title && 
                     <View style={styles.headerContainer}>
                         <Txt fontSize="2xl" fontWeight={700}>
-                            {title}
+                            {t(title)}
                         </Txt>
 
                         {!hideBackButton && 
@@ -114,7 +116,7 @@ const ContainerView: React.FC<Props> = ({
             { bottomButton &&
                 <>
                     <View style={styles.bottomBtnContainer}>
-                        <Btn title={`${bottomButton ? bottomButton : 'CONTINUE'}`} onPress={bottomBtnPress}/>
+                    <Btn title={t(bottomButton || 'common:continue')} onPress={bottomBtnPress}/>
                     </View>
                     <SafeAreaView/>
                 </>
@@ -123,10 +125,10 @@ const ContainerView: React.FC<Props> = ({
                 <View style={styles.directionRow}>
                     <View style={[styles.BtnGroupContainer, bottomBtnGroupStyle]}>
                         <TouchableOpacity style={styles.secondarybtn} onPress={onPressSecondary}>
-                            <Txt fontColor={"secondary"} fontSize={"sm"} fontWeight={700}>{("Cancel")}</Txt>
+                            <Txt fontColor={"secondary"} fontSize={"sm"} fontWeight={700}>{t("common:cancel")}</Txt>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.primarybtn} onPress={onPressPrimary}>
-                            <Txt fontColor={"brand-light"} fontSize={"sm"} fontWeight={700}>{("Save")}</Txt>
+                            <Txt fontColor={"brand-light"} fontSize={"sm"} fontWeight={700}>{t("common:save")}</Txt>
                         </TouchableOpacity>
                     </View>
                 </View>

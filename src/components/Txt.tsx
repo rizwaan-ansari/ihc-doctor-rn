@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, TextStyle } from 'react-native';
 import { ms } from 'react-native-size-matters';
 import {COLOR_PALLETE} from '../utils/ColorConstant'
+import { useTranslation } from 'react-i18next';
 
 
     type fontSize = 'xxs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
@@ -23,7 +24,7 @@ interface TxtProps {
     textDecoration?: textDecoration,
     className?: string,
     numberOfLines?: numberOfLines,
-    children: React.ReactNode
+    children: string | string[]
 }
 
 const FONT_SIZE_MAPPER: Record<fontSize, { size: number, lineHeight: number }> = {
@@ -105,9 +106,10 @@ export default function Txt({fontColor="primary", fontSize="base", fontWeight=40
         textDecoration: textDecoration,
         textTransform: textTransform,
     }
+    const { t } = useTranslation();
     return (
         <Text style={[styleProps, style]}  numberOfLines={numberOfLines} className={className}>
-            {children}
+            {t(children)}
         </Text>
     )
 }

@@ -7,7 +7,6 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import {COLOR_PALLETE} from '../utils/ColorConstant'
 import { useTranslation } from 'react-i18next';
-// import VideoCallScreen from '../screens/VideoCallScreen';
 
 interface PatientCardProps {
     status: Status;
@@ -108,7 +107,7 @@ export default function PatientCard({
             }, containerStyles]}
             onPress={onPress}
         >
-            <View className='flex-row justify-between items-center'>
+            <View className='flex-row justify-between items-center bg-red-600'>
                 <View className='flex-row items-center'>
                     <View className='h-10 w-10 rounded-[5px] overflow-hidden border-[#F1F1F1]'>
                         <FastImage

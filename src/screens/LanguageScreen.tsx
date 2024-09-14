@@ -1,24 +1,31 @@
-import {  Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { useReducer, useState } from "react"; 
+import { I18nManager, SafeAreaView, View } from "react-native"; 
+import { NavigationProp, ParamListBase } from "@react-navigation/native"; 
+
+import FastImage from 'react-native-fast-image'; 
+import { AnimatePresence, MotiView } from "moti";
 import { SquircleView } from "react-native-figma-squircle";
 import { ms } from "react-native-size-matters";
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-import { AnimatePresence, MotiView } from "moti";
-import { NavigationProp, ParamListBase, useNavigation } from "@react-navigation/native";
 
-
-import ContainerView from "../components/ContainerView";
-import FastImage from 'react-native-fast-image'
+import ContainerView from "../components/ContainerView"; 
 import Txt from "../components/Txt";
-
-import LanguageList from "../components/LanguageList";
 import Btn from "../components/Btn";
-import { useState } from "react";
+import LanguageList from "../components/LanguageList";
+import { useTranslation } from "react-i18next";
+import useLocale from "../hooks/useLocale";
 
 
+interface State {
+    selectedLocale: 'ar' | 'en';
+}
 const SQUIRCLE_ICON_SIZE = ms(120, .25)
 
 export default function LanguageScreen({navigation}: {navigation: NavigationProp<ParamListBase>}) {
     const [selectLanguage, setSelectLanguage] = useState(false);
+    const { t } = useTranslation(["register", "common"])
+    const [state] = useReducer((state: State, newState: Partial<State>): State => ({...state, ...newState}), {
+        selectedLocale: I18nManager.isRTL ? 'ar' : 'en'
+    });
 
     const handleLanguageSelect = () => {
         setSelectLanguage(true);
@@ -26,7 +33,7 @@ export default function LanguageScreen({navigation}: {navigation: NavigationProp
 
     return (
         <>
-            <ContainerView staticView title="Select Language">
+            <ContainerView staticView title={"register:select_language"}>
                 <View className="items-center pt-[42px] px-6">
                     <View className="w-[120] h-[120] relative">
                         <SquircleView
@@ -46,19 +53,14 @@ export default function LanguageScreen({navigation}: {navigation: NavigationProp
                         </View>
                     </View>
                     <Txt fontColor="black-50" fontSize={"base"} textAlign={"center"} className="mt-6 leading-[20px]">
-                        Select the language for browsing the app. You can change language anytime from profile.
+                        {t("register:select_the_language_for_browsing_the_app_you_can_change_language_anytime_from_profile")}
                     </Txt>
                     <LanguageList onLanguageSelect={handleLanguageSelect}/>
                 </View>
 
             </ContainerView>
-
             <View style={[{marginHorizontal: ms(16,.25)}]}>
-                <AnimatePresence>
-                    {selectLanguage && <MotiView from={{height: 0, marginTop: ms(0, .25), transform: [{translateY: ms(50, .25)}]}} animate={{height: ms(50, .25), marginTop: ms(16, .25), transform: [{translateY: 0}]}} transition={{duration: 200, type: 'timing',}}>
-                        <Btn title="Next" onPress={()=> navigation.navigate('SignUpScreen')}/>
-                    </MotiView>}
-                </AnimatePresence>
+                <Btn title={"common:next"} onPress={()=> navigation.navigate('SignUpScreen')}/>
             </View>
 
             <SafeAreaView />

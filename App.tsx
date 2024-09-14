@@ -1,12 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import './i18next';
+import 'intl-pluralrules';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import 'react-native-gesture-handler';
@@ -41,8 +36,8 @@ function App(): React.JSX.Element {
 const RootStackNavigator = () => {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
-      <RootStack.Screen name="HomeScreen" component={HomeScreen} />
       <RootStack.Screen name="LanguageScreen" component={LanguageScreen} />
+      <RootStack.Screen name="HomeScreen" component={HomeScreen} />
       <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
       <RootStack.Screen name="LogInScreen" component={LogInScreen} />
       <RootStack.Screen name="OtpScreen" component={OtpScreen} />
