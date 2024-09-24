@@ -4,30 +4,23 @@ import FastImage from 'react-native-fast-image';
 import Carousel from "react-native-reanimated-carousel";
 import { ms } from 'react-native-size-matters';
 import { FlatGrid } from 'react-native-super-grid';
-import ContainerView from '../components/ContainerView';
-import PatientCard, { Status } from '../components/PatientCard';
-import { Section } from '../components/Section';
-import Txt from '../components/Txt';
 import {
-  IMG_ABOUT_ICON_MORE,
   IMG_APPOINTMENT_MENU_ICON,
   IMG_AVAILABILITY_MENU_ICON,
-  IMG_CONTACT_US_ICON_MORE,
-  IMG_FAQ_ICON_MORE,
   IMG_LANGUAGE_MENU_ICON,
-  IMG_LOGIN_ICON_MORE,
   IMG_MY_PROFILE_MENU_ICON,
   IMG_NOTIFICATIONS_MENU_ICON,
   IMG_PATIENTS_MENU_ICON,
-  IMG_PRIVACY_POLICY_ICON_MORE,
-  IMG_REGISTER_ICON_MORE,
   IMG_REVIEWS_MENU_ICON,
-  IMG_SECURITY_ICON_MORE,
-  IMG_TERMS_CONDITIONS_ICON_MORE,
   IMG_TIME_BLOCK_MENU_ICON,
   IMG_USER_PROFILE_4,
   IMG_WALLET_MENU_ICON
 } from '../assets/images';
+import ContainerView from '../components/ContainerView';
+import PatientCard, { Status } from '../components/PatientCard';
+import { Section } from '../components/Section';
+import Txt from '../components/Txt';
+import footerLinks from '../data/footerLinks';
 
 const { width: deviceWidth } = Dimensions.get('window');
 
@@ -226,118 +219,22 @@ export default function AccountScreen(props: any) {
         </Section>
         <Section title="More">
           <View>
+          {footerLinks.map((item, index) => (
             <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
+              <View key={index} className='flex-row items-center mb-6'>
                 <View className='w-[18px] h-[18px] mr-3'>
                   <FastImage
                     className='w-full h-full'
-                    source={IMG_ABOUT_ICON_MORE}
+                    source={item.image}
                     resizeMode="contain"
                   />
                 </View>
                 <Txt fontSize={"base"} fontWeight={500}>
-                  About
+                  {item.label}
                 </Txt>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_PRIVACY_POLICY_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Privacy Policy
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_TERMS_CONDITIONS_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Terms of services
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_SECURITY_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Security
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_CONTACT_US_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Contact us
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_FAQ_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  FAQ
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_LOGIN_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Login
-                </Txt>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View className='flex-row items-center mb-6'>
-                <View className='w-[18px] h-[18px] mr-3'>
-                  <FastImage
-                    className='w-full h-full'
-                    source={IMG_REGISTER_ICON_MORE}
-                    resizeMode="contain"
-                  />
-                </View>
-                <Txt fontSize={"base"} fontWeight={500}>
-                  Register
-                </Txt>
-              </View>
-            </TouchableOpacity>
+          ))}
           </View>
         </Section>
       </View>
