@@ -100,7 +100,7 @@ export default function PatientCard({
     ];
     return (
         <TouchableOpacity
-            className='h-[175px] flex-1 mx-2 rounded-[10px] p-[15px] mb-[15px]'
+            className='h-[175px] flex-1 rounded-[10px] p-[15px] mb-[15px]'
             style={[{
                 backgroundColor: STATUS_INFO[status as Status].cardBgColor, 
                 opacity: STATUS_INFO[status as Status].opacity,

@@ -15,142 +15,141 @@ const PATIENT = [
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_PROFILE_ICON,
-        hasNotification:true
-        
+        hasNotification: true
+
     },
     {
         id: 1,
         key: 'patients',
         title: 'Alia Rahman',
         image: IMG_PATIENT_2_PROFILE_ICON,
-        hasNotification:true
+        hasNotification: true
     },
     {
         id: 2,
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_3_PROFILE_ICON,
-        hasNotification:false
+        hasNotification: false
     },
     {
         id: 3,
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_4_PROFILE_ICON,
-        hasNotification:false
+        hasNotification: false
     },
     {
         id: 4,
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_PROFILE_ICON,
-        hasNotification:false
+        hasNotification: false
     },
     {
         id: 5,
         key: 'patients',
         title: 'Alia Rahman',
         image: IMG_PATIENT_2_PROFILE_ICON,
-        hasNotification:false
+        hasNotification: false
     },
     {
         id: 6,
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_3_PROFILE_ICON,
-        hasNotification:true
+        hasNotification: true
     },
     {
         id: 7,
         key: 'patients',
         title: 'Amr Murtuza bin Saleh',
         image: IMG_PATIENT_4_PROFILE_ICON,
-        hasNotification:false
+        hasNotification: false
     }
 ]
 
 const BookingListScreen = () => {
     return (
         <ContainerView>
-            <View>
-                <Section>
-                    <View style={styles.PatientStatusContainer}>
-                        <FlatList
-                            data={PATIENT}
-                            keyExtractor={(_: any, index: number) => 'patient-list-item' + index}
-                            horizontal
-                            renderItem={({ item }) => (
-                                <TouchableOpacity>
-                                    <View>
-                                        <View style={styles.PatientProfileStatusContainer}>
-                                            <FastImage
-                                                style={styles.PatientProfileStatus}
-                                                source={item.image}
-                                                resizeMode='contain'
-                                            />
-                                        </View>
-                                        <View style={{ width: ms(62, .25) }}>
-                                            <Txt numberOfLines={1} fontColor={"tertiary"} fontSize={"base"} textAlign={"center"} fontWeight={600}>{item.title}</Txt>
-                                        </View>
-                                        {item.hasNotification &&
-                                            <View style={styles.HasNotification}></View>
-                                        }
-                                    </View>
-                                </TouchableOpacity>
-                            )}
-                        />
-                    </View>
-                </Section>
-                <Section>
-                    <View style={styles.FilterWrapper}>
-                        <View style={styles.FilterContainer}>
+            <Section>
+                <View style={styles.PatientStatusContainer}>
+                    <FlatList
+                        data={PATIENT}
+                        keyExtractor={(_: any, index: number) => 'patient-list-item' + index}
+                        horizontal
+                        renderItem={({ item }) => (
                             <TouchableOpacity>
-                                <View style={[styles.FilterIconContainer, styles.FilterIconContainerActive]}>
-                                    <FastImage
-                                        style={styles.FilterIcon}
-                                        source={IMG_FILTER_LIST_ICON}
-                                        resizeMode="contain"
-                                    />
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <View style={styles.FilterIconContainer}>
-                                    <FastImage
-                                        style={styles.FilterIcon}
-                                        source={IMG_FILTER_MENU_ICON}
-                                        resizeMode="contain"
-                                    />
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <View style={styles.FilterIconContainer}>
-                                    <FastImage
-                                        style={styles.FilterIcon}
-                                        source={IMG_FILTER_VIDEO_CALL_ICON}
-                                        resizeMode="contain"
-                                    />
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.FilterContainer}>
-                            <TouchableOpacity>
-                                <View style={styles.FilterIconWrapper}>
-                                    <View style={styles.FilterIconContainer}>
+                                <View>
+                                    <View style={styles.PatientProfileStatusContainer}>
                                         <FastImage
-                                            style={styles.FilterIcon}
-                                            source={IMG_FILTER_ICON}
-                                            resizeMode="contain"
+                                            style={styles.PatientProfileStatus}
+                                            source={item.image}
+                                            resizeMode='contain'
                                         />
                                     </View>
-                                    <Txt fontColor={"brand"} fontSize={"sm"} fontWeight={500}>Filter</Txt>
+                                    <View style={{ width: ms(62, .25) }}>
+                                        <Txt numberOfLines={1} fontColor={"tertiary"} fontSize={"base"} textAlign={"center"} fontWeight={600}>{item.title}</Txt>
+                                    </View>
+                                    {item.hasNotification &&
+                                        <View style={styles.HasNotification}></View>
+                                    }
                                 </View>
                             </TouchableOpacity>
-                        </View>
+                        )}
+                    />
+                </View>
+            </Section>
+            <Section>
+                <View style={styles.FilterWrapper}>
+                    <View style={styles.FilterContainer}>
+                        <TouchableOpacity>
+                            <View style={[styles.FilterIconContainer, styles.FilterIconContainerActive]}>
+                                <FastImage
+                                    style={styles.FilterIcon}
+                                    source={IMG_FILTER_LIST_ICON}
+                                    resizeMode="contain"
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.FilterIconContainer}>
+                                <FastImage
+                                    style={styles.FilterIcon}
+                                    source={IMG_FILTER_MENU_ICON}
+                                    resizeMode="contain"
+                                />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.FilterIconContainer}>
+                                <FastImage
+                                    style={styles.FilterIcon}
+                                    source={IMG_FILTER_VIDEO_CALL_ICON}
+                                    resizeMode="contain"
+                                />
+                            </View>
+                        </TouchableOpacity>
                     </View>
-                    <FlatList
-                        data={BOOKING_CARD}
-                        renderItem={({item}) => (
-                            <PatientCard 
+                    <View style={styles.FilterContainer}>
+                        <TouchableOpacity>
+                            <View style={styles.FilterIconWrapper}>
+                                <View style={styles.FilterIconContainer}>
+                                    <FastImage
+                                        style={styles.FilterIcon}
+                                        source={IMG_FILTER_ICON}
+                                        resizeMode="contain"
+                                    />
+                                </View>
+                                <Txt fontColor={"brand"} fontSize={"sm"} fontWeight={500}>Filter</Txt>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <FlatList
+                    data={BOOKING_CARD}
+                    renderItem={({ item }) => (
+                        <PatientCard
                             status={item.status as Status}
                             containerStyles={""}
                             image={item.profile_pic}
@@ -158,26 +157,18 @@ const BookingListScreen = () => {
                             consultationFee={item.consultation_fee}
                             timeslot={item.timeslot}
                             date={item.date}
-                            onPress={() => {}}
+                            onPress={() => { }}
                             appointmentType={item.appointment_type as "Video Call" | "Walk In"}
                             dateAndTime={item.date_and_time}
-                            />
-                         )}
-                    />
-                </Section>
-            </View>
+                        />
+                    )}
+                />
+            </Section>
         </ContainerView>
     )
 }
 
 const styles = StyleSheet.create({
-    PatientCard: {
-        backgroundColor: "#F5F5F5",
-        borderRadius: ms(8, .25),
-        padding: ms(16, .25),
-        marginBottom: ms(16, .25),
-        opacity: ms(0.6, .25)
-    },
     ActivePatientCard: {
         backgroundColor: "#202C50",
         opacity: ms(1, .25)
@@ -274,7 +265,7 @@ const styles = StyleSheet.create({
     FilterWrapper: {
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
     },
     FilterContainer: {
         flexDirection: "row",
