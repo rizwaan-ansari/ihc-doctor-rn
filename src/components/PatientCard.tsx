@@ -21,9 +21,10 @@ interface PatientCardProps {
     dateAndTime: string;
 }
 export type Status = 'pending' | 'accepted' | 'declined' | 'completed';
-const STATUS_INFO: Record<Status, { cardBgColor: string; label: string; statusTextColor: string; cardInfoBgColor: string; profileName: string; dateTextColor: string; appointmentTypeTextColor: string}> = {
+const STATUS_INFO: Record<Status, { cardBgColor: string; label: string; statusTextColor: string; cardInfoBgColor: string; profileName: string; dateTextColor: string; appointmentTypeTextColor: string; opacity: number;}> = {
     'pending': {
         cardBgColor: COLOR_PALLETE.BRAND_COLOR,
+        opacity: 1,
         label: 'pending',
         statusTextColor: COLOR_PALLETE.WARNING_COLOR,
         cardInfoBgColor: COLOR_PALLETE.ACCENT_BACKGOUND_COLOR,
@@ -33,6 +34,7 @@ const STATUS_INFO: Record<Status, { cardBgColor: string; label: string; statusTe
     },
     'accepted': {
         cardBgColor: COLOR_PALLETE.BRAND_COLOR,
+        opacity: 1,
         label: 'accepted',
         statusTextColor: COLOR_PALLETE.SUCCESS_COLOR,
         cardInfoBgColor: COLOR_PALLETE.BRAND_LIGHT_COLOR,
@@ -42,6 +44,7 @@ const STATUS_INFO: Record<Status, { cardBgColor: string; label: string; statusTe
     },
     'declined': {
         cardBgColor: COLOR_PALLETE.WHITE_COLOR,
+        opacity: 0.6,
         label: 'declined',
         statusTextColor: COLOR_PALLETE.DANGER_COLOR,
         cardInfoBgColor: COLOR_PALLETE.ACCENT_BACKGOUND_COLOR,
@@ -51,6 +54,7 @@ const STATUS_INFO: Record<Status, { cardBgColor: string; label: string; statusTe
     },
     'completed': {
         cardBgColor: COLOR_PALLETE.WHITE_COLOR,
+        opacity: 0.6,
         label: 'completed',
         statusTextColor: COLOR_PALLETE.SECONDARY_TEXT_COLOR,
         cardInfoBgColor: COLOR_PALLETE.ACCENT_BACKGOUND_COLOR,
@@ -99,6 +103,7 @@ export default function PatientCard({
             className='h-[175px] flex-1 mx-2 rounded-[10px] p-[15px] mb-[15px]'
             style={[{
                 backgroundColor: STATUS_INFO[status as Status].cardBgColor, 
+                opacity: STATUS_INFO[status as Status].opacity,
                 shadowColor: '#000',
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: .07,
