@@ -20,7 +20,7 @@ interface mainMenu {
     hasNotification: boolean;
 }
 
-const mainMenu: mainMenu[] = [
+const MAINMENU: mainMenu[] = [
     {
         id: 0,
         key: 'appointments',
@@ -95,4 +95,4 @@ const mainMenu: mainMenu[] = [
     }
 ]
 
-export default mainMenu;
+export default MAINMENU;

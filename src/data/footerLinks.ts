@@ -17,7 +17,7 @@ interface FooterLink {
     label: string;
 }
 
-const footerLinks: FooterLink[] = [
+const FOOTER_LINKS: FooterLink[] = [
     {
         id: 1,
         image: IMG_ABOUT_ICON_MORE,
@@ -60,4 +60,4 @@ const footerLinks: FooterLink[] = [
     },
 ]
 
-export default footerLinks;
+export default FOOTER_LINKS;
