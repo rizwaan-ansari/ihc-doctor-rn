@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput, View } from 'react-native';
 import ContainerView from '../components/ContainerView';
-import Txt from '../components/Txt';
-import Btn from '../components/Btn';
+import Txt from '../components/UIComponent/Txt';
+import Btn from '../components/UIComponent/Btn';
 import FastImage from 'react-native-fast-image';
 import { IMG_CONFIRM_PASSWORD_BANNER, IMG_PASSWORD_LOCK_ICON} from '../assets/images';
 import { ms } from 'react-native-size-matters';

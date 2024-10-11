@@ -1,5 +1,5 @@
 import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from "react-native";
-import Txt from "./Txt";
+import Txt from "./UIComponent/Txt";
 import {COLOR_PALLETE} from '../utils/ColorConstant'
 import { ms } from "react-native-size-matters";
 

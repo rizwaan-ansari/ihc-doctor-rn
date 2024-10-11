@@ -5,7 +5,7 @@ import { ms } from 'react-native-size-matters';
 import { SquircleView } from 'react-native-figma-squircle';
 import Txt from './Txt';
 import { trigger } from 'react-native-haptic-feedback';
-import { COLOR_PALLETE } from '../utils/ColorConstant';
+import { COLOR_PALLETE } from '../../utils/ColorConstant';
 
 type ButtonType = 'default' | 'variant-2';
 

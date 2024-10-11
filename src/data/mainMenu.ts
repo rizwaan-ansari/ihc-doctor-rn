@@ -89,7 +89,7 @@ const MAINMENU: mainMenu[] = [
         id: 8,
         key: 'my_profile',
         title: 'My Profile',
-        link: 'DoctorEditProfileScreen',
+        link: 'EditProfileScreen',
         image: IMG_MY_PROFILE_MENU_ICON,
         hasNotification: false,
     }

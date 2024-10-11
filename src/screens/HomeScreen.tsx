@@ -7,7 +7,7 @@ import { FlatGrid } from 'react-native-super-grid';
 import ContainerView from '../components/ContainerView';
 import PatientCard, { Status } from '../components/PatientCard';
 import { Section } from '../components/Section';
-import Txt from '../components/Txt';
+import Txt from '../components/UIComponent/Txt';
 import BOOKING_CARD from '../data/bookindCard';
 import FOOTER_LINKS from '../data/footerLinks';
 import MAINMENU from '../data/mainMenu';

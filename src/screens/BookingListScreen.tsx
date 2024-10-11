@@ -6,7 +6,7 @@ import { ms } from 'react-native-size-matters'
 import ContainerView from '../components/ContainerView'
 import PatientCard, { Status } from '../components/PatientCard'
 import { Section } from '../components/Section'
-import Txt from '../components/Txt'
+import Txt from '../components/UIComponent/Txt'
 
 import {
     IMG_FILTER_ICON,
@@ -16,8 +16,9 @@ import {
 } from '../assets/images'
 import BOOKING_CARD from '../data/bookindCard'
 import PATIENT_DATA from '../data/patient'
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-const BookingListScreen = () => {
+const BookingListScreen = ({navigation}: {navigation: NavigationProp<ParamListBase>}) => {
     return (
         <ContainerView>
             <Section>
@@ -105,7 +106,7 @@ const BookingListScreen = () => {
                             consultationFee={item.consultation_fee}
                             timeslot={item.timeslot}
                             date={item.date}
-                            onPress={() => { }}
+                            onPress={() => {}}
                             appointmentType={item.appointment_type as "Video Call" | "Walk In"}
                             dateAndTime={item.date_and_time}
                         />

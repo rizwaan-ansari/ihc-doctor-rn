@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Text, TextStyle } from 'react-native';
 import { ms } from 'react-native-size-matters';
-import {COLOR_PALLETE} from '../utils/ColorConstant'
+import {COLOR_PALLETE} from '../../utils/ColorConstant'
 import { useTranslation } from 'react-i18next';
 
 
@@ -24,7 +24,7 @@ interface TxtProps {
     textDecoration?: textDecoration,
     className?: string,
     numberOfLines?: numberOfLines,
-    children: string | string[]
+    children: string | string[] | any
 }
 
 const FONT_SIZE_MAPPER: Record<fontSize, { size: number, lineHeight: number }> = {

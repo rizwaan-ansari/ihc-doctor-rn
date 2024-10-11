@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import ContainerView from '../../src/components/ContainerView';
-import Txt from '../../src/components/Txt';
-import Btn from '../../src/components/Btn';
+import Txt from '../components/UIComponent/Txt';
+import Btn from '../components/UIComponent/Btn';
 import FastImage from 'react-native-fast-image';
 import { IMG_CELL_PHONE_ICON, IMG_COUNTRY_ICON, IMG_FACEBOOK_ICON, IMG_GOOGLE_ICON, IMG_IPHONE_ICON, IMG_LOGO } from '../../src/assets/images';
 import { ms } from 'react-native-size-matters';

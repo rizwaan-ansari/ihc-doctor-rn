@@ -6,7 +6,7 @@ import { ms } from 'react-native-size-matters';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import { IMG_OTP_SCREEN } from '../assets/images';
-import Txt from '../components/Txt';
+import Txt from '../components/UIComponent/Txt';
 import OTPTextView from 'react-native-otp-textinput';
 
 const OtpScreen = ({navigation}: {navigation: NavigationProp<ParamListBase>}) => {

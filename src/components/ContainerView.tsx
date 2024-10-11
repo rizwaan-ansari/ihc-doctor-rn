@@ -6,8 +6,8 @@ import { ms } from "react-native-size-matters";
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
 
-import Txt from "./Txt";
-import Btn from "./Btn";
+import Txt from "./UIComponent/Txt";
+import Btn from "./UIComponent/Btn";
 import { COLOR_PALLETE } from "../utils/ColorConstant";
 import { useTranslation } from "react-i18next";
 

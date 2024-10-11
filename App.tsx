@@ -13,6 +13,10 @@ import HomeScreen from './src/screens/HomeScreen';
 import OtpScreen from './src/screens/OtpScreen';
 import ConfirmPasswordScreen from './src/screens/ConfirmPasswordScreen';
 import BookingListScreen from './src/screens/BookingListScreen';
+import AppointmentDetailScreen from './src/screens/_AppointmentDetailsScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import EditProfileScreen from './src/screens/EditProfileScreen';
+// import AccountScreen from './src/screens/AccountScreen';
 
 
 const RootStack = createNativeStackNavigator();
@@ -51,8 +55,12 @@ const RootStackNavigator = () => {
 const HomeStackNavigator = () => {
     return (
         <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+            {/* <HomeStack.Screen name="AccountScreen" component={AccountScreen} /> */}
+            {/* <HomeStack.Screen name="AppointmentDetailScreen" component={AppointmentDetailScreen} /> */}
+            {/* <HomeStack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
             <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
             <HomeStack.Screen name="BookingListScreen" component={BookingListScreen} />
+            <HomeStack.Screen name="EditProfileScreen" component={EditProfileScreen} />
         </HomeStack.Navigator>
     )
 }

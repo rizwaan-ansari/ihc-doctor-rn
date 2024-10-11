@@ -1,3 +1,4 @@
+import React from "react";
 import { useReducer, useState } from "react"; 
 import { I18nManager, SafeAreaView, View } from "react-native"; 
 import { NavigationProp, ParamListBase } from "@react-navigation/native"; 
@@ -8,8 +9,8 @@ import { SquircleView } from "react-native-figma-squircle";
 import { ms } from "react-native-size-matters";
 
 import ContainerView from "../components/ContainerView"; 
-import Txt from "../components/Txt";
-import Btn from "../components/Btn";
+import Txt from "../components/UIComponent/Txt";
+import Btn from "../components/UIComponent/Btn";
 import LanguageList from "../components/LanguageList";
 import { useTranslation } from "react-i18next";
 import useLocale from "../hooks/useLocale";
