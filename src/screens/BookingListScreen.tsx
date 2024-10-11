@@ -1,73 +1,21 @@
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
-import ContainerView from '../components/ContainerView'
-import { Section } from '../components/Section'
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
-import Txt from '../components/Txt'
-import { IMG_FILTER_ICON, IMG_FILTER_LIST_ICON, IMG_FILTER_MENU_ICON, IMG_FILTER_VIDEO_CALL_ICON, IMG_PATIENT_2_PROFILE_ICON, IMG_PATIENT_3_PROFILE_ICON, IMG_PATIENT_4_PROFILE_ICON, IMG_PATIENT_PROFILE_ICON, IMG_VIDEO_CALL_ICON } from '../assets/images'
 import { ms } from 'react-native-size-matters'
-import BOOKING_CARD from '../data/bookindCard'
+
+import ContainerView from '../components/ContainerView'
 import PatientCard, { Status } from '../components/PatientCard'
+import { Section } from '../components/Section'
+import Txt from '../components/Txt'
 
-const PATIENT = [
-    {
-        id: 0,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_PROFILE_ICON,
-        hasNotification: true
-
-    },
-    {
-        id: 1,
-        key: 'patients',
-        title: 'Alia Rahman',
-        image: IMG_PATIENT_2_PROFILE_ICON,
-        hasNotification: true
-    },
-    {
-        id: 2,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_3_PROFILE_ICON,
-        hasNotification: false
-    },
-    {
-        id: 3,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_4_PROFILE_ICON,
-        hasNotification: false
-    },
-    {
-        id: 4,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_PROFILE_ICON,
-        hasNotification: false
-    },
-    {
-        id: 5,
-        key: 'patients',
-        title: 'Alia Rahman',
-        image: IMG_PATIENT_2_PROFILE_ICON,
-        hasNotification: false
-    },
-    {
-        id: 6,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_3_PROFILE_ICON,
-        hasNotification: true
-    },
-    {
-        id: 7,
-        key: 'patients',
-        title: 'Amr Murtuza bin Saleh',
-        image: IMG_PATIENT_4_PROFILE_ICON,
-        hasNotification: false
-    }
-]
+import {
+    IMG_FILTER_ICON,
+    IMG_FILTER_LIST_ICON,
+    IMG_FILTER_MENU_ICON,
+    IMG_FILTER_VIDEO_CALL_ICON
+} from '../assets/images'
+import BOOKING_CARD from '../data/bookindCard'
+import PATIENT_DATA from '../data/patient'
 
 const BookingListScreen = () => {
     return (
@@ -75,7 +23,7 @@ const BookingListScreen = () => {
             <Section>
                 <View style={styles.PatientStatusContainer}>
                     <FlatList
-                        data={PATIENT}
+                        data={PATIENT_DATA}
                         keyExtractor={(_: any, index: number) => 'patient-list-item' + index}
                         horizontal
                         renderItem={({ item }) => (
