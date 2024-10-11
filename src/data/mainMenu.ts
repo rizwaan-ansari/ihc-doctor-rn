@@ -65,7 +65,7 @@ const MAINMENU: mainMenu[] = [
         id: 5,
         key: 'wallet',
         title: 'Wallet',
-        link: 'DoctorWalletScreen',
+        link: 'WalletScreen',
         image: IMG_WALLET_MENU_ICON,
         hasNotification: true,
     },
