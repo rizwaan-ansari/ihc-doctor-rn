@@ -18,6 +18,7 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import EditProfileScreen from './src/screens/EditProfileScreen';
 import WalletScreen from './src/screens/WalletScreen';
 import ReviewScreen from './src/screens/ReviewScreen';
+import NotificationScreen from './src/screens/NotificationScreen';
 // import AccountScreen from './src/screens/AccountScreen';
 
 
@@ -62,6 +63,7 @@ const HomeStackNavigator = () => {
             {/* <HomeStack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
             <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
             <HomeStack.Screen name="BookingListScreen" component={BookingListScreen} />
+            <HomeStack.Screen name="NotificationScreen" component={NotificationScreen} />
             <HomeStack.Screen name="WalletScreen" component={WalletScreen} />
             <HomeStack.Screen name="EditProfileScreen" component={EditProfileScreen} />
             <HomeStack.Screen name="ReviewScreen" component={ReviewScreen} />
