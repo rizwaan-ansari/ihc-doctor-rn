@@ -19,6 +19,7 @@ import EditProfileScreen from './src/screens/EditProfileScreen';
 import WalletScreen from './src/screens/WalletScreen';
 import ReviewScreen from './src/screens/ReviewScreen';
 import NotificationScreen from './src/screens/NotificationScreen';
+import ChangeLanguageScreen from './src/screens/ChangeLanguageScreen';
 // import AccountScreen from './src/screens/AccountScreen';
 
 
@@ -67,6 +68,7 @@ const HomeStackNavigator = () => {
             <HomeStack.Screen name="WalletScreen" component={WalletScreen} />
             <HomeStack.Screen name="EditProfileScreen" component={EditProfileScreen} />
             <HomeStack.Screen name="ReviewScreen" component={ReviewScreen} />
+            <HomeStack.Screen name="ChangeLanguageScreen" component={ChangeLanguageScreen} />
         </HomeStack.Navigator>
     )
 }
