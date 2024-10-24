@@ -8,6 +8,7 @@ import Btn from '../../UIComponent/Btn'
 
 const handlePress = async () => {
     await SheetManager.hide("withdraw-request-success-drawer")
+    await SheetManager.show("withdraw-success-drawer")
 }
 
 const WithdrawRequestSuccessDrawer = () => {
