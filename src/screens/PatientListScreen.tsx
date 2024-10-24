@@ -39,7 +39,7 @@ export default function PatientListScreen(props:any) {
                     <View style={styles.patientListContainer}>
                         {state.patients.map((item:any)=>{
                             return (
-                                <TouchableOpacity style={styles.patientCard}>
+                                <TouchableOpacity key={`patient-${item.id}`} style={styles.patientCard}>
                                     <View style={styles.patientCardLeft}>
                                         <View style={styles.patientCardAvatarContainer}>
                                             <FastImage

@@ -1525,7 +1525,7 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNGestureHandler (2.19.0):
+  - RNGestureHandler (2.20.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1967,7 +1967,7 @@ SPEC CHECKSUMS:
   ReactCommon: 289214026502e6a93484f4a46bcc0efa4f3f2864
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
-  RNGestureHandler: 3b6fa2bfa341c413d3d08444b838515b58e48ee7
+  RNGestureHandler: 1b7c5ed637e02f6898d08bffb701d378be5e091d
   RNReactNativeHapticFeedback: 2bdbd63bcdbb52c4ae81a7b0c48ab1f00c06980a
   RNReanimated: b0912c8ba12f6c03db07c851c4de71c3eed6c83c
   RNScreens: 19719a9c326e925498ac3b2d35c4e50fe87afc06

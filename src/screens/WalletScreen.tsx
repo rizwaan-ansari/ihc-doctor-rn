@@ -1,5 +1,5 @@
 import React, { useReducer, useRef } from 'react'
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
 import ContainerView from '../components/ContainerView'
 import { IMG_KD_WATERMARK, IMG_REQUEST_SUCCESSFUL, IMG_WITHDRAWAL_SUCCESSFUL } from '../assets/images/index'
 import { ms } from 'react-native-size-matters'
@@ -11,6 +11,7 @@ import { COLOR_PALLETE } from '../utils/ColorConstant'
 import { Section } from '../components/Section'
 import { Modalize } from 'react-native-modalize'
 import Btn from '../components/UIComponent/Btn'
+import { SheetManager } from 'react-native-actions-sheet'
 
 const PAYMENT = [
     {
@@ -75,8 +76,8 @@ export default function WalletScreen() {
     const requestModalRef = useRef<Modalize>(null);
     const withdrawSuccessfulModalRef = useRef<Modalize>(null);
 
-    const onOpenWithdrawal = () => {
-        withdrawalModalRef.current?.open();
+    const onOpenWithdrawal = async() => {
+        await SheetManager.show("withdraw-request-drawer")
     };
 
     const onOpenRequest = () => {
@@ -138,7 +139,7 @@ export default function WalletScreen() {
                     </View>
                 </Section>
             </ContainerView>
-            <Modalize
+            {/* <Modalize
                 ref={withdrawalModalRef}
                 adjustToContentHeight={true}
                 modalStyle={styles.modalRoot}
@@ -193,7 +194,7 @@ export default function WalletScreen() {
                     </Txt>
                     <Btn title={t("OKAY")} onPress={onCloseWithdrawSuccessful} />
                 </View>
-            </Modalize>
+            </Modalize> */}
         </>
     )
 }
@@ -292,8 +293,8 @@ const styles = StyleSheet.create({
     },
     modalContentContainer: {
         flex: 1,
-        // flexDirection: "column",
-        paddingBottom: ms(25, 0.25),
+        flexDirection: "column",
+        // paddingBottom: ms(25, 0.25),
     },
     alignCenter: {
         alignItems: 'center'

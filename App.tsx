@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import './i18next';
 import 'intl-pluralrules';
+import './src/components/Drawers/sheets';
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import 'react-native-gesture-handler';
@@ -21,6 +22,7 @@ import ReviewScreen from './src/screens/ReviewScreen';
 import NotificationScreen from './src/screens/NotificationScreen';
 import ChangeLanguageScreen from './src/screens/ChangeLanguageScreen';
 import PatientListScreen from './src/screens/PatientListScreen';
+import { SheetProvider } from 'react-native-actions-sheet';
 // import AccountScreen from './src/screens/AccountScreen';
 
 
@@ -33,11 +35,13 @@ function App(): React.JSX.Element {
 
     return (
         <GestureHandlerRootView>
-            <NavigationContainer>
-                <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                    <AppStack.Screen name="RootStack" component={RootStackNavigator} />
-                </AppStack.Navigator>
-            </NavigationContainer>
+            <SheetProvider>
+                <NavigationContainer>
+                    <AppStack.Navigator screenOptions={{ headerShown: false }}>
+                        <AppStack.Screen name="RootStack" component={RootStackNavigator} />
+                    </AppStack.Navigator>
+                </NavigationContainer>
+            </SheetProvider>
         </GestureHandlerRootView>
     );
 }
