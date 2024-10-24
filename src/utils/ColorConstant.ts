@@ -11,6 +11,8 @@ export const COLOR_PALLETE: { [key: string]: string } = {
     SECONDARY_TEXT_COLOR: '#808080',
     TERTIARY_TEXT_COLOR: '#A5A8AE',
     NEUTRAL_GRAY: '#888888',
+    WHISPER_GRAY: '#EEEEEE',
+    MUTED_GRAY: '#A8ABB1',
     SECONDARY_BRAND_COLOR_1: '#377771', //green
     SECONDARY_BRAND_COLOR_2: '#A20021', //maroon
     SECONDARY_BRAND_COLOR_3: '#EF7B45', //orange
