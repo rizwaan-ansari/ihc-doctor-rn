@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
     type fontSize = 'xxs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
     type fontWeight = 300 | 400 | 500 | 600 | 700 | 800 | 900;
-    type fontColor = 'dark' | 'primary' | 'secondary' | 'tertiary' | 'white' | 'brand-light' | 'brand' | 'secondary-brand-3' | 'danger' | 'warning' | 'success' | 'white-80' | 'white-60' | 'white-50' | 'white-30' | 'black-50' | 'brand-40' | 'brand-60';
+    type fontColor = 'dark' | 'primary' | 'secondary' | 'tertiary' | 'white' | 'brand-light' | 'brand' | 'secondary-brand-3' | 'danger' | 'warning' | 'success' | 'white-80' | 'white-60' | 'white-50' | 'white-30' | 'black-50' | 'brand-40' | 'brand-60' | 'neutral-gray';
     type textAlign= 'left' | 'center' | 'right';
     type numberOfLines = number;
     type textTransform = "uppercase" | "lowercase" | "capitalize";
@@ -73,6 +73,7 @@ const FONT_COLOR_MAPPER: Record<fontColor, string> = {
     'brand-light': COLOR_PALLETE.BRAND_LIGHT_COLOR,
     'brand': COLOR_PALLETE.BRAND_COLOR,
     'secondary-brand-3': COLOR_PALLETE.SECONDARY_BRAND_COLOR_3,
+    'neutral-gray': COLOR_PALLETE.NEUTRAL_GRAY,
     'danger': COLOR_PALLETE.DANGER_COLOR,
     'warning': COLOR_PALLETE.WARNING_COLOR,
     'success': COLOR_PALLETE.SUCCESS_COLOR,
