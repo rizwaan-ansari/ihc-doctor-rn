@@ -1,10 +1,15 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import ActionSheet from 'react-native-actions-sheet'
+import ActionSheet, { SheetManager } from 'react-native-actions-sheet'
 import Txt from '../../UIComponent/Txt'
 import { TextInput } from 'react-native-paper'
 import { COLOR_PALLETE } from '../../../utils/ColorConstant'
 import Btn from '../../UIComponent/Btn'
+
+const handlePress = async () => {
+    await SheetManager.hide("withdraw-request-drawer");
+    await SheetManager.show("withdraw-request-success-drawer")
+}
 
 const WithdrawRequestDrawer = () => {
     return (
@@ -20,7 +25,7 @@ const WithdrawRequestDrawer = () => {
                     left={<TextInput.Affix text="KD" textStyle={{ color: COLOR_PALLETE.SECONDARY_BRAND_COLOR_1, fontWeight: 700 }} />}
                 />
                 <View className='mt-[15px]'>
-                    <Btn title={"SUBMIT REQUEST"} />
+                    <Btn title={"SUBMIT REQUEST"} onPress={handlePress} />
                 </View>
             </View>
         </ActionSheet>
