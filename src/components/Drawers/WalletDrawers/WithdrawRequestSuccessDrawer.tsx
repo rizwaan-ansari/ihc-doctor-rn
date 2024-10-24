@@ -10,7 +10,7 @@ const handlePress = async () => {
     await SheetManager.hide("withdraw-request-success-drawer")
 }
 
-const WithdrawRequestSeccessDrawer = () => {
+const WithdrawRequestSuccessDrawer = () => {
     return (
         <ActionSheet gestureEnabled={true}>
             <View className='p-[15px] items-center'>
@@ -30,4 +30,4 @@ const WithdrawRequestSeccessDrawer = () => {
     )
 }
 
-export default WithdrawRequestSeccessDrawer
+export default WithdrawRequestSuccessDrawer
